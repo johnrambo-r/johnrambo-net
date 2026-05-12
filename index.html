@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Rambo Rajendran</title>
+  <meta name="description" content="Recruiting | Entrepreneurship | Leadership | Life | Books | Tech" />
+  <meta property="og:title" content="John Rambo Rajendran" />
+  <meta property="og:description" content="Recruiter. Entrepreneur. Writer." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #f0f4f8;
+      --surface:   #ffffff;
+      --surface2:  #e8eef5;
+      --blue:      #4a7fa5;
+      --blue-soft: #d6e8f5;
+      --blue-mid:  #b8d4e8;
+      --teal:      #5ba8a0;
+      --teal-soft: #d4eeec;
+      --text:      #1e2d3d;
+      --text-mid:  #4a5e72;
+      --text-muted:#7a8fa0;
+      --border:    #dce6f0;
+      --radius:    14px;
+      --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(240, 244, 248, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo span { color: var(--blue); }
+
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      padding: 0.4rem 0.85rem;
+      border-radius: 20px;
+      transition: background 0.18s, color 0.18s;
+    }
+
+    .nav-links a:hover {
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 4.5rem 0 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .hero-greeting {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      width: fit-content;
+      opacity: 0;
+      animation: fadeUp 0.5s 0.1s forwards;
+    }
+
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      opacity: 0;
+      animation: fadeUp 0.5s 0.2s forwards;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--blue);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      max-width: 560px;
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeUp 0.5s 0.32s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.5s 0.44s forwards;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.18s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+    }
+    .btn-primary:hover { background: #3d6d91; transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: var(--surface);
+      color: var(--text-mid);
+      border: 1.5px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--blue-mid); color: var(--blue); transform: translateY(-1px); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0.5rem 0;
+    }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-desc {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      margin-bottom: 2rem;
+    }
+
+    /* ── ABOUT ── */
+    .about { padding: 3.5rem 0; }
+
+    .about-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-card p {
+      font-size: 0.975rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .about-card p:last-child { margin-bottom: 0; }
+
+    .about-card a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .about-card a:hover { text-decoration: underline; }
+
+    .about-sign {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-mid);
+      margin-top: 1.5rem !important;
+    }
+
+    .about-sign strong {
+      font-style: normal;
+      color: var(--text);
+      display: block;
+      font-size: 0.95rem;
+      margin-top: 0.15rem;
+    }
+
+    .topics-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .topic-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      transition: all 0.18s;
+      cursor: default;
+    }
+
+    .topic-pill:hover {
+      background: var(--blue-soft);
+      border-color: var(--blue-mid);
+      color: var(--blue);
+      transform: translateX(3px);
+    }
+
+    .topic-pill .icon {
+      font-size: 1rem;
+      width: 24px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    /* ── ARTICLES ── */
+    .articles { padding: 3.5rem 0; }
+
+    .articles-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 1.5rem;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: all 0.18s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--teal));
+      opacity: 0;
+      transition: opacity 0.18s;
+    }
+
+    .article-card:hover {
+      border-color: var(--blue-mid);
+      box-shadow: 0 4px 20px rgba(74, 127, 165, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .article-card:hover::before { opacity: 1; }
+
+    .article-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--blue-soft);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      width: fit-content;
+    }
+
+    .article-title {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    .article-excerpt {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .article-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* featured card - full width */
+    .article-card.featured {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      gap: 2rem;
+      align-items: flex-start;
+      background: linear-gradient(135deg, #eef5fb 0%, #e8f4f0 100%);
+      border-color: var(--blue-mid);
+    }
+
+    .featured-body { flex: 1; display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .featured-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-soft);
+      padding: 0.2rem 0.7rem;
+      border-radius: 4px;
+      width: fit-content;
+    }
+
+    .featured-title {
+      font-family: 'Lora', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    .featured-divider {
+      width: 1px;
+      background: var(--blue-mid);
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+
+    .featured-excerpt {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .featured-excerpt p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    .read-more {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* ── CONNECT ── */
+    .connect { padding: 3.5rem 0 5rem; }
+
+    .connect-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .connect-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.18s;
+    }
+
+    .connect-card:hover {
+      border-color: var(--blue-mid);
+      box-shadow: 0 4px 16px rgba(74, 127, 165, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .connect-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--blue-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .connect-info { flex: 1; min-width: 0; }
+
+    .connect-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .connect-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .connect-arrow {
+      color: var(--text-muted);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .email-card {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #eef5fb 0%, #e8f4f0 100%);
+      border-color: var(--blue-mid);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    footer a:hover { color: var(--blue); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      nav { padding: 0 1rem; }
+      .nav-links a { padding: 0.35rem 0.6rem; font-size: 0.8rem; }
+      .hero { padding: 3rem 0 2rem; }
+      .about-card { grid-template-columns: 1fr; gap: 2rem; padding: 1.75rem; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .article-card.featured { flex-direction: column; }
+      .featured-divider { display: none; }
+      .connect-grid { grid-template-columns: 1fr; }
+      .email-card { grid-column: auto; }
+      .articles-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">John Rambo<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+  </nav>
+
+  <div class="page">
+
+    <!-- HERO -->
+    <section class="hero">
+      <span class="hero-greeting">👋 Hello folks, thanks for stopping by!</span>
+      <h1>I'm John <em>Rambo</em> Rajendran.</h1>
+      <p class="hero-sub">
+        Before you ask — that's not a made up name. It's real 😉<br /><br />
+        I'm a husband, a father, a recruiter and an entrepreneur. Come on, don't judge me already.
+        This is how people write their bios these days.
+      </p>
+      <div class="hero-actions">
+        <a href="#writing" class="btn btn-primary">Read my writing</a>
+        <a href="https://millionsadvisory.com" target="_blank" rel="noopener" class="btn btn-ghost">Millions Advisory →</a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <p class="section-label">About me</p>
+      <h2 class="section-title">A little more than the titles</h2>
+      <p class="section-desc">Of course, I'm much more. But these are the titles I kind of earned.</p>
+
+      <div class="about-card">
+        <div class="about-left">
+          <p>I'm a recruiter, since 2008.</p>
+          <p>I run a recruiting firm called <a href="https://millionsadvisory.com" target="_blank" rel="noopener">Millions Advisory LLP</a>.</p>
+          <p>I love to write about anything and everything I care about — Recruiting, Entrepreneurship, Leadership, Life, People, Books, Tech. And that's not all.</p>
+          <p>I hope you find something useful to take away from here.</p>
+          <p class="about-sign">
+            Love,
+            <strong>John Rambo</strong>
+          </p>
+        </div>
+
+        <div class="topics-list">
+          <div class="topic-pill"><span class="icon">🎯</span> Recruiting</div>
+          <div class="topic-pill"><span class="icon">🏢</span> Entrepreneurship</div>
+          <div class="topic-pill"><span class="icon">🧭</span> Leadership</div>
+          <div class="topic-pill"><span class="icon">📚</span> Books</div>
+          <div class="topic-pill"><span class="icon">💻</span> Tech</div>
+          <div class="topic-pill"><span class="icon">🌱</span> Life</div>
+          <div class="topic-pill"><span class="icon">👥</span> People</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ARTICLES -->
+    <section class="articles" id="writing">
+      <div class="articles-header">
+        <div>
+          <p class="section-label">Writing</p>
+          <h2 class="section-title">Recent articles</h2>
+        </div>
+        <a href="/blog/" class="btn btn-ghost">All articles →</a>
+      </div>
+
+      <div class="articles-grid">
+
+        <!-- Featured -->
+        <a href="/blog/2021/07/07/offer-decline-war.html" class="article-card featured">
+          <div class="featured-body">
+            <span class="featured-badge">⭐ Worth a read</span>
+            <div class="featured-title">Offer Decline War — How it all could have started?</div>
+            <div class="article-meta">Jul 7, 2021 · 5 min read · Recruiting</div>
+          </div>
+          <div class="featured-divider"></div>
+          <div class="featured-excerpt">
+            <p>Job offer decline triggers a war between recruiters and candidates. Here's an imaginative theory on how the whole mess could have started — from notice periods to offer shopping.</p>
+            <span class="read-more">Read article →</span>
+          </div>
+        </a>
+
+        <a href="/blog/2025/03/03/that-welcome-punch.html" class="article-card">
+          <span class="article-tag">Life</span>
+          <div class="article-title">That Welcome Punch</div>
+          <p class="article-excerpt">Getting carried away by overconfidence and letting it cloud our judgement. A lesson from 8th standard I haven't forgotten.</p>
+          <div class="article-meta">Mar 3, 2025 · 2 min read</div>
+        </a>
+
+        <a href="/blog/2021/05/21/basics-of-xray-search.html" class="article-card">
+          <span class="article-tag">Recruiting</span>
+          <div class="article-title">Basics of X-Ray Search</div>
+          <p class="article-excerpt">X-Ray Search is one of the buzz words of the last decade, yet not many recruiters are into it. A practical ground-up introduction.</p>
+          <div class="article-meta">May 21, 2021 · 3 min read</div>
+        </a>
+
+        <a href="/blog/2023/01/12/first-sourcing-call.html" class="article-card">
+          <span class="article-tag">Recruiting</span>
+          <div class="article-title">Why is the first sourcing call very important in Recruiting</div>
+          <p class="article-excerpt">The first sourcing call is a gateway to the entire talent acquisition process. Mess it up once, you mess the whole thing.</p>
+          <div class="article-meta">Jan 12, 2023 · 2 min read</div>
+        </a>
+
+        <a href="/blog/2023/01/12/why-are-you-in-it.html" class="article-card">
+          <span class="article-tag">Entrepreneurship</span>
+          <div class="article-title">Why are you in it?</div>
+          <p class="article-excerpt">When you grow, you'll be tested with situations that make you choose between what's good for now and what's good for you.</p>
+          <div class="article-meta">Jan 12, 2023 · 2 min read</div>
+        </a>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CONNECT -->
+    <section class="connect" id="connect">
+      <p class="section-label">Let's connect</p>
+      <h2 class="section-title">Find me here</h2>
+      <p class="section-desc">I might start nagging you with a newsletter someday. Until then, find me on these platforms.</p>
+
+      <div class="connect-grid">
+
+        <a href="mailto:john@millionsadvisory.com" class="connect-card email-card">
+          <div class="connect-icon">✉️</div>
+          <div class="connect-info">
+            <div class="connect-label">Business enquiries</div>
+            <div class="connect-value">john@millionsadvisory.com</div>
+          </div>
+          <span class="connect-arrow">↗</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/johnramborajendran" target="_blank" rel="noopener" class="connect-card">
+          <div class="connect-icon">💼</div>
+          <div class="connect-info">
+            <div class="connect-label">LinkedIn</div>
+            <div class="connect-value">johnramborajendran</div>
+          </div>
+          <span class="connect-arrow">↗</span>
+        </a>
+
+        <a href="https://twitter.com/johnrambo_r" target="_blank" rel="noopener" class="connect-card">
+          <div class="connect-icon">𝕏</div>
+          <div class="connect-info">
+            <div class="connect-label">Twitter / X</div>
+            <div class="connect-value">@johnrambo_r</div>
+          </div>
+          <span class="connect-arrow">↗</span>
+        </a>
+
+        <a href="https://www.facebook.com/johnrambor26" target="_blank" rel="noopener" class="connect-card">
+          <div class="connect-icon">📘</div>
+          <div class="connect-info">
+            <div class="connect-label">Facebook</div>
+            <div class="connect-value">johnrambor26</div>
+          </div>
+          <span class="connect-arrow">↗</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>©2026 John Rambo Rajendran · Chennai, India</p>
+      <p>Hosted free on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

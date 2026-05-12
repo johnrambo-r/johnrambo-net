@@ -1,0 +1,20 @@
+title: John Rambo Rajendran
+description: Recruiting | Entrepreneurship | Leadership | Life | Books | Tech
+url: "https://johnrambo.net"
+baseurl: ""
+
+# Build
+permalink: /blog/:year/:month/:day/:title.html
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Jekyll settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Exclude from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
