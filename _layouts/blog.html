@@ -78,7 +78,7 @@
   </div>
   <div class="posts-list">
     {% for post in site.posts %}
-    <a href="{{ post.url }}" class="post-item">
+    <a href="{{ site.baseurl }}{{ post.url }}" class="post-item">
       <div class="post-left">
         {% if post.tags.size > 0 %}<span class="post-tag">{{ post.tags | first }}</span>{% endif %}
         <div class="post-title">{{ post.title }}</div>
